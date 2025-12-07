@@ -32,12 +32,13 @@ class Chunker:
             
             # Optimization: Estimate token count first to avoid running nlp on every concatenation
             # 1 token approx 4 chars. 
-            if len(temp_text) / 4 > self.hard_limit:
-                 # Definitely too long, split now
-                 pass
-            
-            doc = self.nlp(temp_text)
-            token_count = len(doc)
+            estimated_tokens = len(temp_text) / 4
+            if estimated_tokens > self.hard_limit:
+                 # Definitely too long, treat as exceeding max_tokens
+                 token_count = estimated_tokens # Approximate
+            else:
+                doc = self.nlp(temp_text)
+                token_count = len(doc)
             
             if token_count > self.max_tokens:
                 # Finalize current chunk
@@ -45,7 +46,7 @@ class Chunker:
                     chunks.append({
                         'text': current_chunk_text,
                         'bbox': current_chunk_bbox, 
-                        'token_count': len(self.nlp(current_chunk_text))
+                        'token_count': len(self.nlp(current_chunk_text)) if len(current_chunk_text) / 4 <= self.hard_limit else len(current_chunk_text) / 4
                     })
                 
                 # Start new chunk

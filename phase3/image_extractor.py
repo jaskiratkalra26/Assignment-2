@@ -36,18 +36,26 @@ class ImageExtractor:
                 # Save as PNG
                 image.save(filepath, "PNG")
                 
-                # Get bbox
+                # Get bbox for all occurrences of this image on the page
                 rects = page.get_image_rects(xref)
-                bbox = [0, 0, 0, 0]
                 if rects:
-                    bbox = list(rects[0]) # Use the first occurrence
-                
-                extracted_images.append({
-                    'filename': filename,
-                    'bbox': bbox,
-                    'width': width,
-                    'height': height
-                })
+                    for i, rect in enumerate(rects):
+                        extracted_images.append({
+                            'filename': filename,
+                            'bbox': list(rect),
+                            'width': width,
+                            'height': height,
+                            'occurrence': i + 1
+                        })
+                else:
+                    # Fallback if no rect found (unlikely if get_images returned it)
+                    extracted_images.append({
+                        'filename': filename,
+                        'bbox': [0, 0, 0, 0],
+                        'width': width,
+                        'height': height,
+                        'occurrence': 1
+                    })
             except Exception as e:
                 print(f"Error processing image {img_index} on page {page_no}: {e}")
                 

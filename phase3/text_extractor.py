@@ -25,6 +25,10 @@ class TextExtractor:
                 continue
             x0, y0, x1, y1, text, block_no, block_type = b
             
+            # Filter out non-text blocks (e.g., images are type 1)
+            if block_type != 0:
+                continue
+            
             # Filter out headers and footers
             if y1 < header_thresh or y0 > footer_thresh:
                 continue
