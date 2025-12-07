@@ -1,0 +1,42 @@
+[
+    {
+        "chunk_id": "4f3dfc15-2e35-4b63-8be2-b366cf0725b6",
+        "text": "Phase 3 - Feature Document (Detailed) 1. Feature Summary The Document Processing Engine converts raw manuals into structured JSON with text chunks, images, tables, and metadata appropriate for multimodal embeddings and RAG retrieval. 2. Functional Requirements FR1: Extract all text from manuals while preserving hierarchy. FR2: Detect headings, subheadings, bullet lists, tables, captions. FR3: Extract all embedded images and associate them with page and block metadata. FR4: Detect tables and export row/column data. FR5: Chunk text into embedding-ready segments of 256-512 tokens. FR6: Link images to text using spatial or caption-based rules. FR7: Export unified structured output in JSON. 3. Non-Functional Requirements NFR1: Accuracy - text extraction error < 5% NFR2: Reliability - must handle corrupted blocks gracefully. NFR3: Performance - must process 100-page PDFs under 10 seconds where possible. NFR4: Scalability - must support asynchronous queue-based processing. 4. User Stories",
+        "metadata": {
+            "page_no": 1,
+            "chunk_id": "4f3dfc15-2e35-4b63-8be2-b366cf0725b6",
+            "section_hierarchy": [],
+            "bbox": [
+                78.0,
+                76.73999786376953,
+                502.0499267578125,
+                688.2979736328125
+            ],
+            "object_type": "text",
+            "source_pdf_name": "Phase3_Feature_Document_Detailed.pdf",
+            "caption": null
+        },
+        "images": [],
+        "tables": []
+    },
+    {
+        "chunk_id": "9747b92b-47b1-41f0-b51e-3c17bb04e17c",
+        "text": "US1: As a backend engineer, I must retrieve structured data to store in Milvus. US2: As an AI engineer, I need consistent chunks for embedding generation. US3: As a technician, I need diagrams linked accurately to text explanations. 5. Detailed Feature Breakdown • Text Extraction: heading detection, bullet normalization, cleanup. • Image Extraction: bounding-box tracking, format normalization, quality thresholding. • Table Extraction: structural reconstruction, header identification. • Metadata: page_no, block index, bbox, inferred section, caption detection. • Chunking Engine: hybrid chunking using token count + semantic breaks. • Export Engine: outputs JSON/YAML/Parquet formats. 6. Risks and Mitigation R1: Scanned PDFs → Mitigation: OCR fallback using Tesseract. R2: Table parsing failure → Mitigation: bounding box extraction + ML-based table detector. R3: Image wrong mapping → Mitigation: coordinate-based matching + caption heuristics.",
+        "metadata": {
+            "page_no": 2,
+            "chunk_id": "9747b92b-47b1-41f0-b51e-3c17bb04e17c",
+            "section_hierarchy": [],
+            "bbox": [
+                78.0,
+                77.25,
+                478.889892578125,
+                522.989990234375
+            ],
+            "object_type": "text",
+            "source_pdf_name": "Phase3_Feature_Document_Detailed.pdf",
+            "caption": null
+        },
+        "images": [],
+        "tables": []
+    }
+]
