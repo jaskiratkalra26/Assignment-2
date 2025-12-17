@@ -2,3 +2,4 @@ pymupdf
 pillow
 spacy
 opencv-python
+git commit -m "requirements updated"
