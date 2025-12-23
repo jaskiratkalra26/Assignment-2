@@ -3,3 +3,5 @@ __pycache__/
 *.pyc
 extracted_images/
 output_*.json
+model_cache/
+Output/

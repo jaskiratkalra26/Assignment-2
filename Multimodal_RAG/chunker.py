@@ -1,7 +1,8 @@
 import spacy
+from .Config import Config
 
 class Chunker:
-    def __init__(self, model="en_core_web_sm"):
+    def __init__(self, model=Config.SPACY_MODEL):
         try:
             self.nlp = spacy.load(model)
         except:
@@ -9,9 +10,9 @@ class Chunker:
             import en_core_web_sm
             self.nlp = en_core_web_sm.load()
             
-        self.min_tokens = 256
-        self.max_tokens = 512
-        self.hard_limit = 768
+        self.min_tokens = Config.MIN_TOKENS
+        self.max_tokens = Config.MAX_TOKENS
+        self.hard_limit = Config.HARD_LIMIT
 
     def chunk_text(self, text_blocks):
         """

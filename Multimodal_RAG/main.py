@@ -8,11 +8,12 @@ from .table_extractor import TableExtractor
 from .chunker import Chunker
 from .linker import Linker
 from .schema import ProcessedChunk, Metadata
+from .Config import Config
 
 class DocumentProcessor:
-    def __init__(self):
+    def __init__(self, image_output_dir=Config.EXTRACTED_IMAGES_DIR):
         self.text_extractor = TextExtractor()
-        self.image_extractor = ImageExtractor()
+        self.image_extractor = ImageExtractor(output_dir=image_output_dir)
         self.table_extractor = TableExtractor()
         self.chunker = Chunker()
         self.linker = Linker()

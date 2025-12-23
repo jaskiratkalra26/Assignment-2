@@ -2,15 +2,25 @@ import torch
 from PIL import Image
 from transformers import CLIPProcessor, CLIPModel
 import torch.nn.functional as F
-from .config import Config
+from .Config import Config
 
 class EmbeddingEngine:
     def __init__(self):
         self.device = Config.DEVICE
         self.model_name = Config.EMBEDDING_MODEL_NAME
         print(f"Loading embedding model: {self.model_name} on {self.device}...")
-        self.model = CLIPModel.from_pretrained(self.model_name, cache_dir=Config.MODEL_CACHE_DIR).to(self.device)
-        self.processor = CLIPProcessor.from_pretrained(self.model_name, cache_dir=Config.MODEL_CACHE_DIR)
+        
+        try:
+            print("Attempting to load embedding model from cache...")
+            self.model = CLIPModel.from_pretrained(self.model_name, cache_dir=Config.MODEL_CACHE_DIR, local_files_only=True).to(self.device)
+            self.processor = CLIPProcessor.from_pretrained(self.model_name, cache_dir=Config.MODEL_CACHE_DIR, local_files_only=True)
+            print("Loaded embedding model from cache.")
+        except Exception as e:
+            print(f"Model not found in cache or error loading: {e}. Downloading...")
+            self.model = CLIPModel.from_pretrained(self.model_name, cache_dir=Config.MODEL_CACHE_DIR).to(self.device)
+            self.processor = CLIPProcessor.from_pretrained(self.model_name, cache_dir=Config.MODEL_CACHE_DIR)
+            print("Downloaded and loaded embedding model.")
+
         self.normalize = Config.NORMALIZE_EMBEDDINGS
 
     def get_text_embedding(self, text: str):
