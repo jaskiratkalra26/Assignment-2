@@ -17,8 +17,8 @@ class Config:
     os.makedirs(MODEL_CACHE_DIR, exist_ok=True)
     
     # Image Extractor Settings
-    MIN_IMAGE_WIDTH = 256
-    MIN_IMAGE_HEIGHT = 256
+    MIN_IMAGE_WIDTH = 100
+    MIN_IMAGE_HEIGHT = 100
     IMAGE_FORMAT = "PNG"
     
     # Text Extractor Settings
