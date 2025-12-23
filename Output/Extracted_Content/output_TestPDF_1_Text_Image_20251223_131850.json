@@ -1,0 +1,24 @@
+[
+    {
+        "chunk_id": "593ba1cc-9f6a-438b-985d-5382d4691011",
+        "text": "Motor Maintenance Manual This manual explains basic motor maintenance procedures. Proper belt alignment is essential for smooth motor operation. Figure 1 shows the internal motor assembly and belt positioning.",
+        "metadata": {
+            "page_no": 1,
+            "chunk_id": "593ba1cc-9f6a-438b-985d-5382d4691011",
+            "section_hierarchy": [],
+            "bbox": [
+                78.0,
+                76.73999786376953,
+                506.4998779296875,
+                370.8399658203125
+            ],
+            "object_type": "text",
+            "source_pdf_name": "TestPDF_1_Text_Image.pdf",
+            "caption": null
+        },
+        "images": [
+            "img_page1_0_20251223_131850.png"
+        ],
+        "tables": []
+    }
+]

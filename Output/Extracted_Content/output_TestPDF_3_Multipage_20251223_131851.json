@@ -1,0 +1,44 @@
+[
+    {
+        "chunk_id": "18416ccb-9e41-4034-82c6-b191d8da8a51",
+        "text": "Electrical Wiring Manual This document covers electrical wiring layouts used in standard machinery.",
+        "metadata": {
+            "page_no": 1,
+            "chunk_id": "18416ccb-9e41-4034-82c6-b191d8da8a51",
+            "section_hierarchy": [],
+            "bbox": [
+                78.0,
+                76.73999786376953,
+                409.7799377441406,
+                136.99000549316406
+            ],
+            "object_type": "text",
+            "source_pdf_name": "TestPDF_3_Multipage.pdf",
+            "caption": null
+        },
+        "images": [
+            "img_page1_0_20251223_131851.png"
+        ],
+        "tables": []
+    },
+    {
+        "chunk_id": "b9fedc8c-99ec-4d73-b3cf-37a7fed49a38",
+        "text": "Safety Instructions Always disconnect power before performing wiring inspections. Use insulated tools and wear protective gloves.",
+        "metadata": {
+            "page_no": 2,
+            "chunk_id": "b9fedc8c-99ec-4d73-b3cf-37a7fed49a38",
+            "section_hierarchy": [],
+            "bbox": [
+                78.0,
+                77.0199966430664,
+                487.59991455078125,
+                144.99000549316406
+            ],
+            "object_type": "text",
+            "source_pdf_name": "TestPDF_3_Multipage.pdf",
+            "caption": null
+        },
+        "images": [],
+        "tables": []
+    }
+]

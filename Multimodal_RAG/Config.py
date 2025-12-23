@@ -9,8 +9,8 @@ class Config:
     EXTRACTED_IMAGES_DIR = os.path.join(OUTPUT_DIR, "Extracted_Images")
     
     # Image Extractor Settings
-    MIN_IMAGE_WIDTH = 256
-    MIN_IMAGE_HEIGHT = 256
+    MIN_IMAGE_WIDTH = 100
+    MIN_IMAGE_HEIGHT = 100
     IMAGE_FORMAT = "PNG"
     
     # Text Extractor Settings
