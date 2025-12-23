@@ -1,5 +1,6 @@
 import fitz  # PyMuPDF
 import re
+from .Config import Config
 
 class TextExtractor:
     def __init__(self):
@@ -16,8 +17,8 @@ class TextExtractor:
         page_height = page.rect.height
         
         # Heuristic for header/footer: top 5% and bottom 5% of the page
-        header_thresh = page_height * 0.05
-        footer_thresh = page_height * 0.95
+        header_thresh = page_height * Config.HEADER_THRESHOLD
+        footer_thresh = page_height * Config.FOOTER_THRESHOLD
 
         for b in blocks:
             # b is (x0, y0, x1, y1, "text", block_no, block_type)
